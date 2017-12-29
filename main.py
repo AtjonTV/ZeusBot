@@ -47,7 +47,7 @@ class run:
         self.init()
 
     def init(self):
-        logger.info("Welcome to ZeusBot v2.1 for 'vHackXT 1.64' by OlympicCode and ATVG-Studios!")
+        logger.info("Welcome to ZeusBot v2.2 for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
         while True:
             # update the player
             time.sleep(self.wait_load)
@@ -81,9 +81,9 @@ class run:
                             if int(totaltask) == int(self.get_max_update):
                                 stat = "1"
                         else:
-                            stat = self.u.startTask(self.updates[self.updatecount])
+                            (stat, levelupdates) = self.u.startTask(self.updates[self.updatecount])
                             if "3" in stat or "0" in stat:
-                                logger.info("I am updating '{}' to level {}".format(self.updates[self.updatecount], int(self.u.infoVersion(self.updates[self.updatecount]))))
+                                logger.info("I am updating '{}' to level {}".format(self.updates[self.updatecount], int(levelupdates)+1))
                                 # print "Started Update
                                 logger.info("Waiting! Doing updates..")
                                 # u.useBooster()

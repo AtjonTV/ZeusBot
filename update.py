@@ -16,7 +16,6 @@ class Update:
         "fAllCosts":"23","money":"17798567","inet":"10","hdd":"10","cpu":"10","ram":"14","fw":"350","av":"747",
         "sdk":"1185","ipsp":"151","spam":"204","scan":"575","adw":"210","netcoins":"9544","urmail":"0","score":"16254",
         "energy":"262260372","useboost":"2","boost":"336","status":"1","stime":"1495357017"}'
-
         ['data']
         [{u'start': u'1495356942', u'end': u'1495359788', u'type': u'sdk', u'taskid': u'110610282', u'wto': u'1186'},
          {u'start': u'1495357175', u'end': u'1495360024', u'type': u'sdk', u'taskid': u'110612494', u'wto': u'1187'}]
@@ -69,9 +68,10 @@ class Update:
         :return:
         """
         temp = self.ut.requestString(self.username, self.password, self.uhash, "vh_addUpdate.php", utype=type)
+        j = json.loads(temp)
         if "result" in temp:
-            return temp.split('result":"')[1].split('"')[0]
-        return "2"
+            return temp.split('result":"')[1].split('"')[0], j[j['type']]
+        return "2", False
 
     def fillWithTask(self, type):
         """

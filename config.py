@@ -47,7 +47,7 @@ updates = ["ipsp", "fw", "scan", "sdk", "av"]
 # updates = ["ipsp",  "sdk"]
 
 # Do you want to attack during tournament [True, False]
-joinTournament = True
+joinTournament = False
 
 # Time to wait between each cycle in seconds
 wait = round(uniform(0, 1), 2)
