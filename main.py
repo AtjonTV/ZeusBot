@@ -47,7 +47,7 @@ class run:
         self.init()
 
     def init(self):
-        logger.info("Welcome to ZeusBot v2.0 for 'vHackXT 1.64' by OlympicCode and ATVG-Studios!")
+        logger.info("Welcome to ZeusBot v2.1 for 'vHackXT 1.64' by OlympicCode and ATVG-Studios!")
         while True:
             # update the player
             time.sleep(self.wait_load)
@@ -83,7 +83,7 @@ class run:
                         else:
                             stat = self.u.startTask(self.updates[self.updatecount])
                             if "3" in stat or "0" in stat:
-                                logger.info("I am updating {} to level {}".format(self.updates[self.updatecount], self.updates[self.updatecount]+1))
+                                logger.info("I am updating '{}' to level {}".format(self.updates[self.updatecount], int(self.u.infoVersion(self.updates[self.updatecount]))))
                                 # print "Started Update
                                 logger.info("Waiting! Doing updates..")
                                 # u.useBooster()
@@ -133,7 +133,7 @@ class run:
                                 break
                         # UPDATE Value
                         else:
-                            logger.info("you have less than 5 boost's.")
+                            logger.info("You have less than 5 boost's.")
                             break
                 except Exception as e:
                     logger.error("Connection Error try again.. {0}".format(e))

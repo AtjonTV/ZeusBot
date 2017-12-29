@@ -118,3 +118,8 @@ class Update:
             return j["costs"]
         else:
             return j[types]
+
+    def infoVersion(self, name):
+        temp = self.ut.requestString(self.username, self.password, self.uhash, "vh_update.php")
+        j = json.loads(temp)
+        return j[name]
