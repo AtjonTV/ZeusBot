@@ -77,18 +77,18 @@ class Botnet:
 
         for i in range(1, self.botNetServers + 1):
             if cinfo[i - 1] == '1':
-                logger.debug('attacking #{}'.format(i))
+                logger.debug('I am attacking #{}'.format(i))
                 if i == 1:
                     response = self.ut.requestString(self.username, self.password, self.uhash, "vh_attackCompany.php", company=str(i))
                 else:
                     response = self.ut.requestString(self.username, self.password, self.uhash, "vh_attackCompany" + str(i) + ".php", company=str(i))
-                logger.debug('attack #{} response {}'.format(i, response))
+                logger.debug('I attacked #{} with response {}'.format(i, response))
                 if response == '0':
                     logger.info('#{} Netcoins gained'.format(i))
                 else:
                     logger.info('#{} Failed! No netcoins...'.format(i))
             else:
-                logger.info("Botnet #{} not hackable as yet".format(i))
+                logger.info("Botnet #{} not hackable yet".format(i))
 
     def upgradebotnet(self, hostname, running, count):
         """
@@ -97,25 +97,25 @@ class Botnet:
         :return: None
         """
         ofwhat = self.ofwhat[random.randint(0,3)]
-        logger.info("Prepare attempting to upgrade bot net PC's "+ hostname + " [" + ofwhat + "]")
+        logger.info("Prepare attempting to upgrade botnet PC "+ hostname + " [upgrading: " + ofwhat + "]")
         get_infobot = self.getInfo()
 
         if (int(get_infobot['data'][count]['strength']) == 3000):
-            logger.info("bot is complet [max strength 3000] " + hostname)
+            logger.info("The bot '"+hostname+"' is on max strength [max strength 3000] ")
             return True
 
         if (int(get_infobot['data'][count]['running']) == 0): 
             new_bal = self.upgradesinglebot(hostname, ofwhat)
             if new_bal:
-                logger.info("wait botnet update working for " + hostname + "...")
+                logger.info("Waiting! Doing updates for bot '" + hostname + "' ..")
                 return True
             else:
-                logger.info("your are not energy for update " + hostname + " :(")
+                logger.info("You don't have enough energy to upgrade '" + hostname + "'! :(")
                 return False
         else:
-            logger.info(hostname + " running update please wait...")
+            logger.info("Waiting! Doing updates for bot '" + hostname + "' ..")
             return False
-        logger.debug("#{} not upgradeable".format(hostname))
+        logger.error("The bot '{}' is not upgradeable".format(hostname))
         return False
 
     def _botnetInfo(self):
@@ -147,7 +147,7 @@ class Botnet:
         if int(jsons['result']) == 0:
             return True
         else:
-            logger.error("Upgrade " + hostname + " Failed !")
+            logger.error("Upgrades on " + hostname + " Failed !")
             return False
 
     def __repr__(self):

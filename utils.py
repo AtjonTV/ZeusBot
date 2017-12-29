@@ -148,9 +148,9 @@ class Utils:
                 t = r.read()
                 logger.debug("Response:\n{}\n".format(t))
                 if t == "5":
-                    logger.info("Check your Internet.")
+                    logger.info("Please check your Internet.")
                 elif t == "8":
-                    logger.info("User/Password wrong!")
+                    logger.info("Username or Password is wrong, please check it in 'config.py'.")
                 elif t == "10":
                     logger.info("API is updated.")
                 elif t == "15":

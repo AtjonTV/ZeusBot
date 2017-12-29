@@ -105,7 +105,7 @@ class Ddos:
                         data2[str(i.encode("utf-8")).strip()] = int(data.count(i))
                     newA = sorted(data2.iteritems(), key=operator.itemgetter(1), reverse=True)[0:nb]
 
-                    logger.info("best list for tournament :")
+                    logger.info("Best list of the last tournament :")
                     final_data = {}
                     for i in range(0, len(newA)):
                         Cluster_name = newA[i][0]

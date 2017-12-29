@@ -47,15 +47,15 @@ class run:
         self.init()
 
     def init(self):
+        logger.info("Welcome to ZeusBot v2.0 for 'vHackXT 1.64' by OlympicCode and ATVG-Studios!")
         while True:
             # update the player
-
             time.sleep(self.wait_load)
             stat = "0"
             # prepare account
             self.get_max_update = int(self.u.infoUpdate("ram", "new")) - 1
             self.running_all = self.u.runningtasks()
-            logger.info("you are running {}/{} tasks".format(self.running_all, self.get_max_update))
+            logger.info("You have {} of {} tasks running.".format(self.running_all, self.get_max_update))
 
             if int(self.running_all) < int(self.get_max_update):
                 while "0" in stat or "3" in stat:
@@ -73,7 +73,7 @@ class run:
                             self.updatecount += 1
 
                             try:
-                                logger.info("require {}$ for update {} your money {}$".format(moneyforupdate, self.updates[self.updatecount], mymoney))
+                                logger.info("You neeed {}$ for the update '{}', but you only have {}$".format(moneyforupdate, self.updates[self.updatecount], mymoney))
                             except IndexError:
                                 stat = "1"
 
@@ -83,9 +83,9 @@ class run:
                         else:
                             stat = self.u.startTask(self.updates[self.updatecount])
                             if "3" in stat or "0" in stat:
-                                logger.info("updating {} level +1".format(self.updates[self.updatecount]))
+                                logger.info("I am updating {} to level {}".format(self.updates[self.updatecount], self.updates[self.updatecount]+1))
                                 # print "Started Update
-                                logger.info("Waiting... in update")
+                                logger.info("Waiting! Doing updates..")
                                 # u.useBooster()
                                 self.updatecount += 1
                                 totaltask = int(self.u.runningtasks()) + int(self.updatecount)
@@ -105,12 +105,12 @@ class run:
                         self.b.upgradebotnet(i['hostname'], int(i['running']), count)
                 else:
                     if int(botnet['count']) == 0:
-                        logger.info("You are not botnet")
+                        logger.info("You don't have a botnet!")
 
                     if int(botnet['energy']) == 0:
-                        logger.info("You are not energy for update botnet")
+                        logger.info("You don't have enough energy to update you'r botnet!")
                     else:
-                        logger.info("Your botnet energy ("+ str(botnet['energy']) +") < " + str(self.min_energy_botnet) + " Please wait for regeneration...")
+                        logger.info("Your botnet energy ("+ str(botnet['energy']) +") is less than " + str(self.min_energy_botnet) + "! Please wait for regeneration..")
 
             # attack botnet
             #number_botnet = json.loads(self.b._botnetInfo())
@@ -133,20 +133,20 @@ class run:
                                 break
                         # UPDATE Value
                         else:
-                            logger.info("you have < 5 boost.")
+                            logger.info("you have less than 5 boost's.")
                             break
                 except Exception as e:
-                    logger.error("Connection Error try again...{0}".format(e))
+                    logger.error("Connection Error try again.. {0}".format(e))
                     pass
             if self.Use_netcoins:
                 time.sleep(2)
                 if self.player.netcoins > 1 and self.running_all > 1:
                     self.u.finishAll()
                     self.player.refreshinfo()  # update player info
-                    logger.info("I used Netcoins for finish all task.")
+                    logger.info("I used Netcoins for finish all you'r task.")
             if self.player.email > 0:
                 time.sleep(self.wait_load)
-                logger.info('Reading mails...')
+                logger.info('Reading mails..')
                 self.m.read_mails()
 
             # attack players
