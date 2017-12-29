@@ -47,7 +47,7 @@ External dependencies you'll need include:
  
 To install the bot on Linux:  
 
-### You can find installation scripts at [ZeusBot-Install](http://gitlab.atvg-studios.at Zeu Bot Installer)  
+### You can find installation scripts at [ZeusBot-Install](http://gitlab.atvg-studios.at/ZeusBot-Installer)  
 
 **New Mode Available !**  
 "**Potator**" or "**Secure**" on line 39 in main.py (edit line)
