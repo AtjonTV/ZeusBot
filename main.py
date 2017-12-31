@@ -47,7 +47,7 @@ class run:
         self.init()
 
     def init(self):
-        logger.info("Welcome to ZeusBot v2.2 for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
+        logger.info("Welcome to ZeusBot v2.3.0-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
         while True:
             # update the player
             time.sleep(self.wait_load)
@@ -152,6 +152,8 @@ class run:
             # attack players
             self.c.attack(self)
 
+            # reinitialise your profil money, email ...
+            run.__init__(self)
 
 if __name__ == "__main__":
     r = run()
