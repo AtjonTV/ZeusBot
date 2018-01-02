@@ -47,7 +47,7 @@ class run:
         self.init()
 
     def init(self):
-        logger.info("Welcome to ZeusBot v2.3.0-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
+        logger.info("Welcome to ZeusBot v2.3.1-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
         while True:
             # update the player
             time.sleep(self.wait_load)
