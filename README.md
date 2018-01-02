@@ -2,8 +2,9 @@
 ZeusBot is written in Python 2.7   
 
 [![Discord](https://img.shields.io/badge/Chat-%20on%20Discord-738bd7.svg?style=flat-square)](https://discord.gg/EZNjh7t) 
-[![GITHUB issue](https://img.shields.io/github/issues/OlympicCode/vHackAPI-Python.svg?style=flat-square&raw=true)](https://github.com/OlympicCode/vHackAPI-Python/issues)
-[![TRAVIS CI](https://travis-ci.org/OlympicCode/vHackXTBot-Python.svg?branch=master)](https://travis-ci.org/OlympicCode/vHackXTBot-Python)
+[![issues](https://img.shields.io/github/issues/OlympicCode/vHackAPI-Python.svg?style=flat-square&raw=true)](http://gitlab.atvg-studios.at/root/ZeusBot/issue)
+[![buildstatus](http://gitlab.atvg-studios.at/root/ZeusBot/badges/dev-2.x/build.svg)](http://gitlab.atvg-studios.at/root/ZeusBot/commits/dev-2.x)
+
 
 [![DiscordBig](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqIgbcCpiwO-V04gZWfGRZl-qrmIbgKXZtHCDjhV9nF_l3tD0g9w)](https://discord.gg/EZNjh7t)
 
