@@ -127,15 +127,14 @@ class Botnet:
             elif int(get_infobot['data'][count]['stars']) == 0:
                 maxofwhat = 250
 
-            for a, i in enumerate(range(0, 3)):
-                if int(get_infobot['data'][count][self.ofwhat[i]]) == int(maxofwhat):
-                    if i <= 2:
-                        self.ofwhat.remove(self.ofwhat[i+1])
-                    else:
-                        self.ofwhat.remove(self.ofwhat[i])
-
+            for a, i in enumerate(xrange(0, 3)):
+                if int(get_infobot['data'][count][unicode(self.ofwhat[i-remove])]) == int(maxofwhat):
+                    self.ofwhat.remove(self.ofwhat[i-remove])
+                    remove = remove +1
+                    print(int(get_infobot['data'][count][self.ofwhat[i-remove]]), self.ofwhat[i-remove])
+                
             ofwhat = self.ofwhat[random.randint(0,(len(self.ofwhat)-1))]
-
+ 
             new_bal = self.upgradesinglebot(hostname, ofwhat)
             if new_bal:
                 logger.info("wait botnet update working for " + hostname + ", [" + ofwhat + "]")
