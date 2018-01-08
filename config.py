@@ -34,7 +34,8 @@ mode = "Secure"
 BotNet_update = True
 
 # Enter Updates (fw, av, smash, mwk)
-BotNet_updates = ["smash"]
+#BotNet_updates = ["fw", "av", "smash", "mwk"]
+BotNet_updates = "ALL"
 
 # check list of more player in tournament and ddos the cluster.
 ddos_cluster = False
@@ -45,7 +46,8 @@ tournament_potator = False
 AttackTournamentDB = False
 Max_point_tournament = 1300
 # Enter Updates (inet, hdd, cpu, ram, fw, av, sdk, ipsp, spam, scan, adw)
-updates = ["ipsp", "fw", "scan", "sdk", "av"]
+#updates = ["ipsp", "fw", "scan", "sdk", "av"]
+updates = "ALL"
 
 # Do you want to attack during tournament [True, False]
 joinTournament = False

@@ -30,6 +30,8 @@ class Botnet:
         and populate and array of Bot class
         :return: none
         """
+        if(self.ofwhat == "ALL"):
+            self.ofwhat = ["fw", "av", "smash", "mwk"]
         data = self._botnetInfo()
         bots = json.loads(data)
         self.botnet = []
@@ -150,7 +152,7 @@ class Botnet:
             return False
 
         elif (int(get_infobot['data'][count]['running']) == 1):
-            logger.info("Waiting! Doing updates for bot '" + hostname + "' ..")
+            logger.info("Waiting! Doing updates for bot '" + hostname + "', [" + ofwhat + "]")
             return False
 
         logger.debug("The bot '{}' is not upgradeable".format(hostname))

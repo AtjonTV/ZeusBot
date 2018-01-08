@@ -47,7 +47,8 @@ class run:
         self.init()
 
     def init(self):
-        logger.info("Welcome to ZeusBot v2.3.2-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
+        if(self.updates == "ALL"):
+            self.updates = ["inet","hdd","cpu","ram","fw","av","sdk","ipsp","spam","scan","adw"]
         while True:
             # update the player
             time.sleep(self.wait_load)
@@ -156,4 +157,5 @@ class run:
             run.__init__(self)
 
 if __name__ == "__main__":
+    logger.info("Welcome to ZeusBot v2.3.2-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
     r = run()
