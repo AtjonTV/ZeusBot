@@ -142,7 +142,7 @@ class Botnet:
 
             remove = 0
 
-            for a, i in enumerate(xrange(0, len(self.ofwhat)-1)):
+            for a, i in enumerate(xrange(0, len(self.ofwhat))):
                 if int(get_infobot['data'][count][unicode(self.ofwhat[i-remove])]) == int(maxofwhat):
                     self.ofwhat.remove(self.ofwhat[i-remove])
                     remove = remove + 1

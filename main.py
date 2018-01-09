@@ -164,5 +164,5 @@ class run:
             run.__init__(self)
 
 if __name__ == "__main__":
-    logger.info("Welcome to ZeusBot v2.3.3-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
+    logger.info("Welcome to ZeusBot v2.3.3-dev (Patch 1) for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
     r = run()
