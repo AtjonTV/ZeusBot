@@ -6,6 +6,7 @@ from utils import Utils
 import json
 import logging
 import random
+import config
 logger = logging.getLogger(__name__)
 
 
@@ -19,7 +20,7 @@ class Botnet:
         self.botNetServers = 3
         self.botnet = []
         self.p = player
-        self.ofwhat = ["fw", "av", "smash", "mwk"]
+        self.ofwhat = config.BotNet_updates
         self.energy = 0
         self._initbot()
 
@@ -29,12 +30,14 @@ class Botnet:
         and populate and array of Bot class
         :return: none
         """
+        if(self.ofwhat == "ALL"):
+            self.ofwhat = ["fw", "av", "smash", "mwk"]
         data = self._botnetInfo()
         bots = json.loads(data)
         self.botnet = []
         if int(bots['count']) > 0:
             for i in bots['data']:
-                bot = Bot(i['running'], self.ofwhat[random.randint(0,3)], self.energy, i['hostname'],  self.username, self.password, self.uhash)
+                bot = Bot(i['running'], self.ofwhat[random.randint(0,len(self.ofwhat)-1)], self.energy, i['hostname'],  self.username, self.password, self.uhash)
                 self.botnet.append(bot)
 
     def printbots(self):
@@ -96,27 +99,28 @@ class Botnet:
         Cycle through and upgrade until no money.
         :return: None
         """
-        logger.info("Prepare attempting to upgrade bot net PC's "+ hostname)
+        ofwhat = self.ofwhat[random.randint(0,len(self.ofwhat)-1)]
+        logger.info("Prepare attempting to upgrade bot net PC '"+ hostname +"'")
         get_infobot = self.getInfo()
 
         if (int(get_infobot['data'][count]['strength']) == 1120 and int(get_infobot['data'][count]['stars']) == 4):
-            logger.info("bot is complet [max strength 1120] " + hostname + " for level " + str(get_infobot['data'][count]['stars']))
+            logger.info("Bot '"+hostname+"' has max strength [1120] for level " + str(get_infobot['data'][count]['stars']))
             return  False
 
         elif (int(get_infobot['data'][count]['strength']) == 840 and int(get_infobot['data'][count]['stars']) == 3):
-            logger.info("bot is complet [max strength 840] " + hostname + " for level " + str(get_infobot['data'][count]['stars']))
+            logger.info("Bot '"+hostname+"' has max strength [840] for level " + str(get_infobot['data'][count]['stars']))
             return False
 
         elif (int(get_infobot['data'][count]['strength']) == 600 and int(get_infobot['data'][count]['stars']) == 2):
-            logger.info("bot is complet [max strength 600] " + hostname + " for level " + str(get_infobot['data'][count]['stars']))
+            logger.info("Bot '"+hostname+"' has max strength [600] for level " + str(get_infobot['data'][count]['stars']))
             return False
 
         elif (int(get_infobot['data'][count]['strength']) == 400 and int(get_infobot['data'][count]['stars']) == 1):
-            logger.info("bot is complet [max strength 400] " + hostname + " for level " + str(get_infobot['data'][count]['stars']))
+            logger.info("Bot '"+hostname+"' has max strength [400] for level " + str(get_infobot['data'][count]['stars']))
             return False
 
         elif (int(get_infobot['data'][count]['strength']) == 3000 and int(get_infobot['data'][count]['stars']) == 0):
-            logger.info("bot is complet [max strength 3000] " + hostname + " for level " + str(get_infobot['data'][count]['stars']))
+            logger.info("Bot '"+hostname+"' has max strength [3000] for level " + str(get_infobot['data'][count]['stars']))
             return False
 
         if (int(get_infobot['data'][count]['running']) == 0 and int(get_infobot['energy']) > 0):
@@ -127,27 +131,31 @@ class Botnet:
             elif int(get_infobot['data'][count]['stars']) == 0:
                 maxofwhat = 250
 
-            for a, i in enumerate(xrange(0, 3)):
+            remove = 0
+
+            for a, i in enumerate(xrange(0, len(self.ofwhat)-1)):
                 if int(get_infobot['data'][count][unicode(self.ofwhat[i-remove])]) == int(maxofwhat):
                     self.ofwhat.remove(self.ofwhat[i-remove])
-                    remove = remove +1
-                
+                    remove = remove + 1
+                if i == 3:
+                    break
+
             ofwhat = self.ofwhat[random.randint(0,(len(self.ofwhat)-1))]
- 
+
             new_bal = self.upgradesinglebot(hostname, ofwhat)
             if new_bal:
-                logger.info("wait botnet update working for " + hostname + ", [" + ofwhat + "]")
+                logger.info("Waiting! Doing updates for bot '" + hostname + "', [" + ofwhat + "]")
                 return True
 
-        elif (int(get_infobot['energy']) > 0):
-            logger.info("your are not energy for update " + hostname + " :(")
+        elif (int(get_infobot['energy']) == 0):
+            logger.info("You don't have enough energy to upgrade '" + hostname + "'! :(")
             return False
 
         elif (int(get_infobot['data'][count]['running']) == 1):
-            logger.info(hostname + " running update please wait...")
+            logger.info("Waiting! Doing updates for bot '" + hostname + "', [" + ofwhat + "]")
             return False
 
-        logger.debug("#{} not upgradeable".format(hostname))
+        logger.debug("The bot '{}' is not upgradeable".format(hostname))
         return False
 
     def _botnetInfo(self):
