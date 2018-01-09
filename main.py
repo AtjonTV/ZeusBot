@@ -12,9 +12,11 @@ import config
 import ddos
 import logging
 logger = logging.getLogger(__name__)
-FORMAT = '%(asctime)s [%(threadName)10s][%(module)10s][%(levelname)8s] %(message)s'
-logging.basicConfig(level=logging.INFO, format=FORMAT)
-
+hdlr = logging.FileHandler('logs/main.log')
+formatter = logging.Formatter('%(asctime)s [%(threadName)10s][%(module)10s][%(levelname)8s] %(message)s')
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr)
+logger.setLevel(logging.INFO)
 
 class run:
     def __init__(self):
@@ -38,6 +40,7 @@ class run:
         self.min_energy_botnet = config.minimal_energy_botnet_upgrade
         self.stat = "0"
         self.wait_load = config.wait_load
+        self.debug = config.debug
         self.c = Console(self.player)
         self.u = Update(self.player)
         # disable botnet for > api v13
@@ -49,6 +52,10 @@ class run:
     def init(self):
         if(self.updates == "ALL"):
             self.updates = ["inet","hdd","cpu","ram","fw","av","sdk","ipsp","spam","scan","adw"]
+        
+        if self.debug:
+            logger.warning("Debugging is enabled!");
+        
         while True:
             # update the player
             time.sleep(self.wait_load)
@@ -157,5 +164,5 @@ class run:
             run.__init__(self)
 
 if __name__ == "__main__":
-    logger.info("Welcome to ZeusBot v2.3.2-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
+    logger.info("Welcome to ZeusBot v2.3.3-dev for 'vHackXT 1.64' (API Version 15) by OlympicCode and ATVG-Studios!")
     r = run()

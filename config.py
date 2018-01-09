@@ -61,3 +61,7 @@ database = 'database.db'
 
 # check attack anonymous
 anon = True
+
+# enable debugging output
+# -- This should only be enabled while development 
+debug = True

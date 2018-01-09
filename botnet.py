@@ -8,7 +8,11 @@ import logging
 import random
 import config
 logger = logging.getLogger(__name__)
-
+hdlr = logging.FileHandler('logs/botnet.log')
+formatter = logging.Formatter('%(asctime)s [%(threadName)10s][%(module)10s][%(levelname)8s] %(message)s')
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr)
+logger.setLevel(logging.INFO)
 
 class Botnet:
     ut = Utils()
@@ -22,6 +26,7 @@ class Botnet:
         self.p = player
         self.ofwhat = config.BotNet_updates
         self.energy = 0
+        self.debug = config.debug
         self._initbot()
 
     def _initbot(self):
@@ -99,7 +104,11 @@ class Botnet:
         Cycle through and upgrade until no money.
         :return: None
         """
-        ofwhat = self.ofwhat[random.randint(0,len(self.ofwhat)-1)]
+        ofwhat = self.ofwhat[random.randint(0,(len(self.ofwhat)-1))]
+        
+        if self.debug:
+                logger.warning("L106; ofwhat = '%s'",ofwhat)
+        
         logger.info("Prepare attempting to upgrade bot net PC '"+ hostname +"'")
         get_infobot = self.getInfo()
 
@@ -141,6 +150,9 @@ class Botnet:
                     break
 
             ofwhat = self.ofwhat[random.randint(0,(len(self.ofwhat)-1))]
+            
+            if self.debug:
+                logger.warning("L151; ofwhat = '%s'",ofwhat)
 
             new_bal = self.upgradesinglebot(hostname, ofwhat)
             if new_bal:
