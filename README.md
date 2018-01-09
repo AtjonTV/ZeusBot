@@ -50,6 +50,29 @@ To install the bot on Linux:
 
 ### You can find installation scripts at [ZeusBot-Install](http://gitlab.atvg-studios.at/root/ZeusBot-Installer)  
 
+### Installing on Android  
+#### (I serve no help for android.)
+
+Install Pillow on Android 6.x    
+>$ pkg install python python-dev libjpeg-turbo-dev ndk-sysroot clang  
+>$ python -m pip install wheel  
+>$ LDFLAGS="-L/system/lib/" CFLAGS="-I/data/data/com.termux/files/usr/include/"  python -m pip install pillow    
+>$ python -m pip install request   
+>$ python -m pip install futures   
+
+start for Android 6.x  
+>$ python main.py  
+
+Install Pillow on Android 7.x  
+>$ pkg install python python-dev libjpeg-turbo-dev ndk-sysroot clang  
+>$ python2 -m pip install wheel  
+>$ LDFLAGS="-L/system/lib/" CFLAGS="-I/data/data/com.termux/files/usr/include/"  python2 -m pip install pillow    
+>$ python2 -m pip install request  
+>$ python2 -m pip install futures  
+
+start for 7.x  
+>$ python2 main.py 
+
 **New Mode Available !**  
 "**Potator**" or "**Secure**" on line 39 in main.py (edit line)
 
