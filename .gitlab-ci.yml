@@ -1,6 +1,7 @@
 image: 
-  node:9.3.0
+  python:2.7.14
 all_tests:
   script:
-    - npm install
-    - npm test
+    - apt install -y python-pip python-pillow
+    - pip install -r requirements.txt
+    - python main.py
