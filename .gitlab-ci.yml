@@ -2,6 +2,5 @@ image:
   python:2.7.14
 all_tests:
   script:
-    - apt install -y python-pip python-pillow
     - pip install -r requirements.txt
     - python main.py
