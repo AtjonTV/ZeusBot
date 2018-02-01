@@ -27,11 +27,12 @@ System test Results
 
 Hostings
 
-| Hoster | Price ($ and €)| Duration | Max Bots per user | Max Bots on Service
+| Hoster | Price ($ and €)| Duration | Max Bots per Customer| Used Bots
 | --------|:---------:|:--------:|:-------:|:-------:|
-|ATVG-Studios| 5 | one month | 10 | 200
-|BeeIT| 5 | one month | 10 | 200
-|XerxezZ| 10 | one month | 20 | 400
+|ATVG-Studios Private Hosting| 60 | one year | 1 | 1/10
+|ATVG-Studios| 5 | one month | 10 | 4/200
+|BeeIT| 5 | one month | 10 | 0/200
+|XerxezZ| 10 | one month | 20 | 0/400
 
 How to get a host?  
 The only way is to contact AtjonTV @ ATVG-Studios to get him make a connection to one of the listed Hosts, he will take in your money, give it to the host and manage your bot on thair system.
@@ -39,6 +40,12 @@ The only way is to contact AtjonTV @ ATVG-Studios to get him make a connection t
 AtjonTV's Mail:
 <admin.atjontv@atvg-studios.at>
 
+
+Possible Payment methods:  
+* Credit Card
+* PayPal
+* PaySafeCard
+* Skrill
 
 Function
 - Update your Account Firewall / IPSP / CPU / Ram ect...
