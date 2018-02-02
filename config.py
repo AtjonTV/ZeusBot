@@ -1,7 +1,8 @@
 from random import uniform
 
-user = ""
-password = ""
+# PLEASE CHANGE THE USER AND PASSWORD BELOW TO MATCH YOURS
+user = "BuildTesting"
+password = "buildTesting"
 
 # Enter Max Antivir to attack in normal mode
 maxanti_normal = 3000
