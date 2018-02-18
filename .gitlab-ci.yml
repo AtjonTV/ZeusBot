@@ -1,6 +1,7 @@
 image: 
   python:2.7.14
-all_tests:
+
+test:
   script:
     - pip install -r requirements.txt
     - python main.py

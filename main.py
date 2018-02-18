@@ -62,7 +62,7 @@ class run:
             time.sleep(self.wait_load)
             stat = "0"
             # prepare account
-             if self.number_task:
+            if self.number_task:
                 self.get_max_update = int(self.number_task)
             else:
                 self.get_max_update = int(self.u.infoUpdate("ram", "new")) - 1
@@ -168,5 +168,5 @@ class run:
             run.__init__(self)
 
 if __name__ == "__main__":
-    logger.info("Welcome to ZeusBot v2.3.3-dev (Patch 3) for 'vHackXT 1.66' (API Version 16) by ATVG-Studios and OlympicCode!")
+    logger.info("Welcome to ZeusBot v2.3.3-dev (Patch 4) for 'vHackXT 1.66' (API Version 16) by ATVG-Studios and OlympicCode!")
     r = run()
