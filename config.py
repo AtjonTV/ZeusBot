@@ -4,6 +4,9 @@ from random import uniform
 user = ""
 password = ""
 
+# Max ammout of tasks run by the bot (default 30 since update 1.66)
+number_task = 30
+
 # Enter Max Antivir to attack in normal mode
 maxanti_normal = 3000
 
